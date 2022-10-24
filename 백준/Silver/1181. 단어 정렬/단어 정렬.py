@@ -6,4 +6,4 @@ for i in range(n):
 words=list(words)
 words.sort()
 words.sort(key=lambda x:len(x))
-print("\n".join(words))
+print('\n'.join(words))
