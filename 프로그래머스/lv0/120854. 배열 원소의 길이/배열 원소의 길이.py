@@ -1,6 +1,6 @@
 def solution(strlist):
-    answer = [0]*len(strlist)
-    for i in range(len(strlist)):
-        answer[i] = len(strlist[i])
-    
+    answer = []
+    for i in strlist:
+        answer.append(len(i))
+
     return answer
