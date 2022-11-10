@@ -1,7 +1,6 @@
 def solution(s):
-    s = s.lower().split(" ")
+    s = s.split(" ")
     for i in range(len(s)):
-        if s[i].isalpha():
-            s[i]=s[i][0].upper()+s[i][1:]
-
-    return " ".join(s)
+        s[i]=s[i].capitalize()
+    
+    return ' '.join(s)
