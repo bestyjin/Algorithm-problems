@@ -1,21 +1,22 @@
 def solution(genres, plays):
-    answer = []    
-    hash_genre = dict()
-    hash_play = dict()
+    answer = []
+    hash_genres={}
+    hash_plays={}
     
-    for i, (g,p) in enumerate(zip(genres,plays)):
-        if g in hash_genre:
-            hash_genre[g] += p
+    for i,(g,p) in enumerate(zip(genres,plays)):
+        if g not in hash_genres:
+            hash_genres[g]=p
         else:
-            hash_genre[g] = p
+            hash_genres[g]+=p
             
-        if g in hash_play:
-            hash_play[g].append((i,p))
+        if g not in hash_plays:
+            hash_plays[g]=[(i,p)]
         else:
-            hash_play[g]=[(i,p)]
-    
-    for j in dict(sorted(hash_genre.items(), key=lambda x: x[1], reverse=True)):
-        for k in sorted(hash_play[j], key=lambda x: x[1], reverse=True)[:2]:
-            answer.append(k[0])
-    
+            hash_plays[g].append((i,p))
+            
+    for (k,v) in sorted(hash_genres.items(), key= lambda x:x[1], reverse=True):
+        for (i,p) in sorted(hash_plays[k], key= lambda x:x[1], reverse=True)[:2]:
+            answer.append(i)
+            
+        
     return answer
