@@ -1,5 +1,4 @@
-from heapq import heapify, heappush, heappop
-
+from heapq import heappop,heappush,heapify
 def solution(scoville, K):
     answer = 0
     heapify(scoville)
@@ -9,10 +8,10 @@ def solution(scoville, K):
         if first >= K:
             break
             
-        if len(scoville) == 0:
+        elif len(scoville) == 0:
             return -1
         
-        answer+=1
-        heappush(scoville, first + (heappop(scoville)*2))
-
+        heappush(scoville,first + (heappop(scoville) * 2))
+        answer += 1
+        
     return answer
