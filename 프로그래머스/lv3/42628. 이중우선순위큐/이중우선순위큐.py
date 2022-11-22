@@ -9,11 +9,11 @@ def solution(operations):
             if len(heap) == 0:
                 continue
             if num == '1':
-                heap.remove(nlargest(1,heap)[0])
+                heap.remove(max(heap))
             elif num == "-1":
                 heappop(heap)
     
     if len(heap) == 0:
         return [0,0]
     else:
-        return [nlargest(1,heap)[0],heappop(heap)]
+        return [max(heap),heappop(heap)]
