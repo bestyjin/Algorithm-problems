@@ -1,6 +1,7 @@
 def solution(citations):
-    citations.sort(reverse=True)
-    for i in range(len(citations)):
-        if i>=citations[i]:
-            return i
-    return len(citations)
+    citations.sort()
+    l = len(citations)
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
+    return 0
