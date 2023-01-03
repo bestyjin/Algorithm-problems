@@ -1,5 +1,3 @@
 function solution(num1, num2) {
-    var answer = 0;
-    answer = parseInt(num1 / num2);
-    return answer;
+    return parseInt(num1/num2);
 }
