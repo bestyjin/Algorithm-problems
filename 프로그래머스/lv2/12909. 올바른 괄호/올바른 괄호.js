@@ -1,21 +1,15 @@
 function solution(s){
-    s = s.split('');
-    let stack =[];
-    while (s.length > 0) {
-        let pop = s.pop();
-        if (pop === ')') {
-            stack.push(')');
-        } else if (pop === '(') {
-            if (stack.length > 0){
-                stack.pop();
-            } else {
+    let count = 0;
+    
+    for(const c of s){
+        if (c === '('){
+            count += 1;
+        } else {
+            if (count === 0) {
                 return false;
             }
-        } 
+            count -= 1;
+        }
     }
-    if (stack.length>0){
-        return false;
-    } else {
-        return true;    
-    }
+    return count === 0;
 }
