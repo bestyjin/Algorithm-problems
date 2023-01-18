@@ -1,8 +1,21 @@
 function solution(s){
-    let stackCount = 0;
-    for (let i = 0; i < s.length; i++) {
-        stackCount += s[i] === '(' ? 1 : -1;
-        if (stackCount < 0) return false;
+    s = s.split('');
+    let stack =[];
+    while (s.length > 0) {
+        let pop = s.pop();
+        if (pop === ')') {
+            stack.push(')');
+        } else if (pop === '(') {
+            if (stack.length > 0){
+                stack.pop();
+            } else {
+                return false;
+            }
+        } 
     }
-    return stackCount === 0 ? true : false;
+    if (stack.length>0){
+        return false;
+    } else {
+        return true;    
+    }
 }
